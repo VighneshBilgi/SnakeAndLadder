@@ -6,6 +6,7 @@ public class SnakeAndLadder {
     static final int NO_PLAY = 1;
     static final int LADDER = 2;
     static final int SNAKE = 3;
+    static final int WIN_POS = 100;
 
     private static int Options() {
         int options = (int)(Math.random()*10 %3) +1;
@@ -15,25 +16,30 @@ public class SnakeAndLadder {
     public static void main(String[] args) {
         System.out.println("Snake and Ladder Game:");
 
+        while (playPos<=WIN_POS){
 
-        int die = (int)(Math.random()*10 %6) +1;
-        System.out.println("Die Number is:"+die);
+            int die = (int)(Math.random()*10 %6) +1;
+            System.out.println("Die Number is:"+die);
 
-        int options = Options();
+            int options = Options();
 
-        switch (options){
-            case NO_PLAY:
-                System.out.println("Player stays in same position");
-                break;
-            case LADDER:
-                playPos = playPos +die;
-                System.out.println("Player moves ahead! Player is at position:" + playPos+ "\n");
-                break;
-            case SNAKE:
-                playPos = playPos -die;
-                System.out.println("Player moves behind! Player is at position:" + playPos+ "\n");
-                break;
-            default:
+            switch (options){
+                case NO_PLAY:
+                    System.out.println("Player stays in same position. Player is at position:" + playPos+ "\n");
+                    break;
+                case LADDER:
+                    playPos = playPos +die;
+                    System.out.println("Player moves ahead! Player is at position:" + playPos+ "\n");
+                    break;
+                case SNAKE:
+                    playPos = playPos -die;
+                    if(playPos <0){
+                        playPos =0;
+                    }
+                    System.out.println("Player moves behind! Player is at position:" + playPos+ "\n");
+                    break;
+                default:
+            }
         }
     }
 
