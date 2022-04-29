@@ -3,6 +3,7 @@ package com.bridgelabz.snakeandladder;
 public class SnakeAndLadder {
 
     static int playPos = 0;
+    static int dieCount = 0;
     static final int NO_PLAY = 1;
     static final int LADDER = 2;
     static final int SNAKE = 3;
@@ -15,6 +16,7 @@ public class SnakeAndLadder {
 
     public static void main(String[] args) {
         System.out.println("Snake and Ladder Game:");
+
 
         while (playPos<=WIN_POS){
 
@@ -42,10 +44,11 @@ public class SnakeAndLadder {
                     break;
                 default:
             }
+            dieCount++;
             if (playPos == WIN_POS)
                 break;
         }
-
+        System.out.println("Number of times Die was rolled is:"+dieCount);
     }
 
 
