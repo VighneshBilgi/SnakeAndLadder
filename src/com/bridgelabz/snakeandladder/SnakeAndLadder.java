@@ -28,8 +28,10 @@ public class SnakeAndLadder {
                     System.out.println("Player stays in same position. Player is at position:" + playPos+ "\n");
                     break;
                 case LADDER:
-                    playPos = playPos +die;
-                    System.out.println("Player moves ahead! Player is at position:" + playPos+ "\n");
+                    if (playPos +die <=WIN_POS) {
+                        playPos = playPos + die;
+                        System.out.println("Player moves ahead! Player is at position:" + playPos + "\n");
+                   }
                     break;
                 case SNAKE:
                     playPos = playPos -die;
@@ -40,7 +42,10 @@ public class SnakeAndLadder {
                     break;
                 default:
             }
+            if (playPos == WIN_POS)
+                break;
         }
+
     }
 
 
